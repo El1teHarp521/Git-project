@@ -99,5 +99,28 @@ cta" href="#contacts">Связаться</a></li>
         <p>Телефон: +7 (926) 180-90-29</p>
     </footer>
 </body>
-
+<img>
+<!-- width/height уменьшают «скачок» макета (CLS); alt обязателен -->
+<img src="img/card-640.jpg" alt="Проект: макет мобильного приложения" width="640" height="360" loading="lazy"
+    decoding="async">
+<!-- Браузер сам выбирает лучший ресурс по ширине контейнера -->
+<img src="img/card-640.jpg" srcset="img/card-640.jpg 640w, img/card-960.jpg 960w, img/card-1280.jpg
+1280w" sizes="(max-width: 700px) 92vw, (max-width: 1200px) 640px, 960px" alt="Проект: макет мобильного приложения"
+    loading="lazy">
+<!-- <picture> позволяет предложить AVIF/WebP, а <img> — надёжный фолбэк -->
+<picture>
+    <source type="image/avif" srcset="img/card.avif">
+    <source type="image/webp" srcset="img/card.webp">
+    <img src="img/card.jpg" alt="Проект: макет мобильного приложения" width="640" height="360">
+</picture>
+<!-- Добавьте субтитры через <track> (WebVTT); poster — превью-кадр -->
+<video class="media" controls preload="metadata" playsinline
+width="960" height="540" poster="video/poster.jpg">
+<source src="video/teaser-1080.mp4" type="video/mp4"> <!-- основной
+формат -->
+<source src="video/teaser-720.webm" type="video/webm"> <!-- альтернатива -->
+<track kind="captions" srclang="ru" src="video/captions-ru.vtt"
+label="Русские субтитры" default>
+Ваш браузер не поддерживает видео.
+</video>
 </html>

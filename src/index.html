@@ -87,5 +87,14 @@
     <source type="image/webp" srcset="img/card.webp">
     <img src="img/card.jpg" alt="Проект: макет мобильного приложения" width="640" height="360">
 </picture>
-
+<!-- Добавьте субтитры через <track> (WebVTT); poster — превью-кадр -->
+<video class="media" controls preload="metadata" playsinline
+width="960" height="540" poster="video/poster.jpg">
+<source src="video/teaser-1080.mp4" type="video/mp4"> <!-- основной
+формат -->
+<source src="video/teaser-720.webm" type="video/webm"> <!-- альтернатива -->
+<track kind="captions" srclang="ru" src="video/captions-ru.vtt"
+label="Русские субтитры" default>
+Ваш браузер не поддерживает видео.
+</video>
 </html>
