@@ -2,5 +2,5 @@
 ## Проект
 Этот репозиторий является каркасом для будущего веб-приложения.
 ## Ссылки
-- [Публичная страница на GitHub Pages](https://el1teharp521.github.io/Git-project/)
+- [Публичная страница на GitHub Pages](file:///C:/Users/artem/OneDrive/Документы/git-project/src/index.html))
 

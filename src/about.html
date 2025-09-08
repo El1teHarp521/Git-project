@@ -1,33 +1,53 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
     <link rel="stylesheet" href="styles.css">
     <script src="main.js" defer></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>О нас - El1teHarp</title>
-    <meta name="description" content="Узнайте больше о студии VostART: наша история, философия и команда профессионалов.">
+    <meta name="description"
+        content="Узнайте больше о студии El1teHarp: наша история, философия и команда профессионалов.">
     <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
 </head>
+
 <body>
     <!-- Шапка сайта -->
     <header>
-        <a href="index.html">El1teHarp</a>
-        <!-- Главное меню навигации -->
-        <nav>
-            <ul>
-                <li><a href="index.html">Главная</a></li>
-                <li><a href="about.html">О нас</a></li>
-                <li><a href="contacts.html">Контакты</a></li>
+        <a class="site-header__brand" href="/">El1teHarp</a>
+        <nav class="site-nav" aria-label="Основная навигация">
+            <ul class="site-nav__list">
+                <li class="site-nav__item"><a class="site-nav__link" href="index.html">Главная</a></li>
+                <li class="site-nav__item"><a class="site-nav__link" href="about.html">О нас</a></li>
+                <li class="site-nav__item"><a class="site-nav__link site-nav__link--
+cta" href="#contacts">Связаться</a></li>
             </ul>
         </nav>
     </header>
 
     <!-- Уникальное основное содержимое страницы -->
     <main>
+        <button class="theme-toggle" type="button" aria-pressed="false">Тема</button>
+        <script defer>
+            const KEY = 'theme', btn = document.querySelector('.theme-toggle');
+            const prefersDark = matchMedia('(prefers-color-scheme: dark)').matches;
+            // Автовыбор: системная тема или сохранённый выбор пользователя
+            if (localStorage.getItem(KEY) === 'dark' || (!localStorage.getItem(KEY) &&
+                prefersDark)) {
+                document.body.classList.add('theme-dark');
+                btn?.setAttribute('aria-pressed', 'true');
+            }
+            // Переключение по кнопке с сохранением в localStorage
+            btn?.addEventListener('click', () => {
+                const isDark = document.body.classList.toggle('theme-dark');
+                btn.setAttribute('aria-pressed', String(isDark));
+                localStorage.setItem(KEY, isDark ? 'dark' : 'light');
+            });
+        </script>
         <!-- Простые "хлебные крошки" -->
         <nav aria-label="Хлебные крошки">
-            <a href="index.html">Главная</a> - 
+            <a href="index.html">Главная</a> -
             <span>О нас</span>
         </nav>
 
@@ -52,4 +72,5 @@
         <p>Телефон: +7 (926) 180-90-29</p>
     </footer>
 </body>
+
 </html>
