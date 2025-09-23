@@ -185,3 +185,44 @@ button,input,select,textarea{ font:inherit; color:inherit; }
 :root{ color-scheme: light; } /* Светлые скроллбары/контролы по
 умолчанию */
 body.theme-dark{ color-scheme: dark; } /* Тёмные — при активной теме */
+/* Изображение в карточке заполняет блок и не искажает пропорции */
+.card__img{
+width:100%; height:220px; /* фиксируем высоту карточки */
+object-fit:cover; object-position:center; /* аккуратное кадрирование */
+border-radius:var(--radius); display:block;
+}
+/* Герой-секция: затемняющий градиент поверх фонового изображения */
+.hero{
+background:
+linear-gradient(to top, rgba(0,0,0,.55), rgba(0,0,0,.15)), /* оверлей для
+контраста текста */
+url("img/hero-1920.jpg") center/cover no-repeat; /* картинка
+как декор */
+color:#fff;
+padding: clamp(2rem, 6vw, 6rem) 1rem; /* адаптивные
+отступы */
+border-radius:var(--radius);
+}
+.hero{
+background-image:
+linear-gradient(to top, rgba(0,0,0,.55), rgba(0,0,0,.15)),
+image-set(
+url("img/hero-1280.jpg") 1x, /* обычные экраны */
+url("img/hero-2560.jpg") 2x /* плотные экраны */
+);
+background-position:center;
+background-size:cover;
+background-repeat:no-repeat;
+}
+/* Контейнер с фиксированным соотношением сторон для <iframe>/<video> */
+.media{
+aspect-ratio: 16/9; /* удерживаем пропорцию блока */
+width: min(100%, 960px); /* не шире 960px, но адаптивен */
+margin-inline: auto; /* центрируем блок */
+}
+.media iframe,
+.media video{
+width:100%; height:100%; /* медиа занимает всю площадь контейнера
+*/
+border:0; border-radius:var(--radius);
+}
